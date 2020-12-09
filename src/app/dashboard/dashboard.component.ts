@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ServerService } from '../server.service';
+
+
 
 @Component({
   selector: 'app-dashboard',
@@ -6,11 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  email: string;
 
-  constructor() { }
+  constructor(private server: ServerService) { }
 
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.server.request('GET', '/budget').subscribe((user: any) => {
+      if(user){
+        console.log(this.email);
+        this.email = user.email;
+      }
+    });
   }
 
 }

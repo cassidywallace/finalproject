@@ -31,7 +31,11 @@ const routes: Routes = [
   {
     path: '**',
     component: P404Component
-  }
+  },
+{
+  path: 'signup',
+  component: SignupComponent
+}
 ];
 
 @NgModule({

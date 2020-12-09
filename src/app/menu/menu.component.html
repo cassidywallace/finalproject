@@ -1,9 +1,17 @@
 <nav class="menu" role="navigation">
-  <ul>
-    <li><a [routerLink]="['']">Home</a></li>
-    <li><a [routerLink]="['login']">Login</a></li>
-    <li><a [routerLink]="['logout']">Logout</a></li>
+  <div >
+    <ul class="menu">
+    <li><a routerLink="/"> Login</a></li>
   </ul>
+  </div>
+  <div  *ngIf="AuthenticationService.isLoggedIn | async as isLoggedIn">
+    <div>
+      <ul class="menu">
+        <li><a  routerLink="/dashboard">Dashboard</a></li>
+        <li><a (click)="onLogout()">Logout</a></li>
+      </ul>
+    </div>
+  </div>
 
 </nav>
 

@@ -20,7 +20,7 @@ export class PiechartComponent implements OnInit {
       _data[i] = data[i].budget;
     }
 
-    var ctx = document.getElementById('myChart');
+    var ctx = document.getElementById('myChart') as HTMLCanvasElement;
     var myPieChart = new Chart(ctx, {
       type: 'pie',
       data: {

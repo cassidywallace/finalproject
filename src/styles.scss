@@ -522,3 +522,6 @@ span.psw {
 .ng-invalid:not(form)  {
   border-left: 5px solid #a94442; /* red */
 }
+
+@import '~foundation-sites/dist/css/foundation.min.css';
+@import '~ngx-foundation/dist/css/ngx-foundation.min.css';

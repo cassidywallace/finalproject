@@ -13,12 +13,15 @@ import { P404Component } from './p404/p404.component';
 import { LogoutComponent } from './logout/logout.component';
 import { PiechartComponent } from './piechart/piechart.component';
 import { DataService } from './data.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DonutchartComponent } from './donutchart/donutchart.component';
 import { BarchartComponent } from './barchart/barchart.component';
 import { AddbudgetComponent } from './addbudget/addbudget.component';
-import { AddbudgetformComponent } from './addbudgetform/addbudgetform.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthenticationService } from './authentication.service';
+import { ServerService } from './server.service';
+//import { AuthInterceptor } from './AuthInterceptor';
+
 
 
 
@@ -37,16 +40,16 @@ import { FormsModule } from '@angular/forms';
     DonutchartComponent,
     BarchartComponent,
     AddbudgetComponent,
-    AddbudgetformComponent,
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    ReactiveFormsModule
   ],
-  providers: [ DataService],
+  providers: [ DataService, AuthenticationService, ServerService,
+  //{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

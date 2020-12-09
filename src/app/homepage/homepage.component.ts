@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthenticationService } from '../authentication.service';
+
+
 
 @Component({
   selector: 'app-homepage',
@@ -7,9 +11,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup;
+  public loginInvalid: boolean;
+  private formSubmitAttempt: boolean;
 
-  ngOnInit(): void {
+  constructor(private fb: FormBuilder, private authenticationService: AuthenticationService) { }
+
+  ngOnInit() {
+    this.form = this.fb.group({
+      email: ['', Validators.email],
+      password: ['', Validators.required]
+    });
+  }
+
+  async onSubmit(){
+    this.loginInvalid = false;
+    this.formSubmitAttempt = false;
+
+    if (this.form.valid){
+      try{
+        await this.authenticationService.login(this.form.value);
+
+      }
+      catch (error){
+        this.loginInvalid = true;
+      }
+    }
+    else {
+      this.formSubmitAttempt = true;
+
+    }
   }
 
 }
