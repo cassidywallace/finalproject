@@ -20,7 +20,7 @@ import { AddbudgetComponent } from './addbudget/addbudget.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthenticationService } from './authentication.service';
 import { ServerService } from './server.service';
-//import { AuthInterceptor } from './AuthInterceptor';
+import { AuthInterceptor } from './AuthInterceptor';
 
 
 
@@ -48,7 +48,7 @@ import { ServerService } from './server.service';
     ReactiveFormsModule
   ],
   providers: [ DataService, AuthenticationService, ServerService,
-  //{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
 ],
   bootstrap: [AppComponent]
 })

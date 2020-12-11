@@ -39,11 +39,7 @@ get isLoggedIn(){
           this.token = response.token;
           this.server.setLoggedIn(true, this.token);
           this.loggedIn.next(true);
-          const userData = {
-            token: this.token,
-          };
-          console.log(userData);
-          localStorage.setItem('jwt', JSON.stringify(userData));
+          localStorage.setItem('jwt', JSON.stringify(this.token));
           this.router.navigate(['/dashboard']);
         }
       });

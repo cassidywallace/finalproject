@@ -11,7 +11,6 @@ export class DataService {
   constructor(private http: HttpClient) {}
 
   getChartData(): Observable<any[]> {
-
     return this.http.get<any[]>(this.dataUrl);
     }
 
