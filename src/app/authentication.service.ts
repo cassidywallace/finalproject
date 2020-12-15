@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 
 
 
-const baseUrl = 'http://localhost:3001'
+const baseUrl = 'http://104.236.14.183:3001'
 
 @Injectable()
 export class AuthenticationService {
