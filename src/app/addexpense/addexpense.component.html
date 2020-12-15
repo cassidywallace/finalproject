@@ -2,8 +2,8 @@
   <div class="grid-x">
     <div class="small-12 medium-10 medium-offset-1 large-8 large-offset-2 cell">
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <h2>Add New Budget</h2>
-        <p>Please enter your new budget</p>
+        <h2>Add Expenses</h2>
+        <p>Please enter your expenses</p>
         <label class="full-width-input">
           Budget title
           <input type="text" placeholder="Title" formControlName="title" required>
@@ -13,7 +13,7 @@
           Budget value
           <input type="text" placeholder="Value" formControlName="budget" required>
         </label>
-        <button class="button">Enter</button>
+        <button type="submit" class="button">Enter</button>
         <br>
         <button type="button" (click)="delete()" class="button">Delete Expense</button>
         <br>
@@ -23,4 +23,3 @@
     </div>
   </div>
 </div>
-

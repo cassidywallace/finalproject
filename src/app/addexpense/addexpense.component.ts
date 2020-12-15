@@ -3,13 +3,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ServerService } from '../server.service';
 import { Router } from '@angular/router';
 
-
 @Component({
-  selector: 'app-addbudget',
-  templateUrl: './addbudget.component.html',
-  styleUrls: ['./addbudget.component.scss']
+  selector: 'app-addexpense',
+  templateUrl: './addexpense.component.html',
+  styleUrls: ['./addexpense.component.scss']
 })
-export class AddbudgetComponent implements OnInit {
+export class AddexpenseComponent implements OnInit {
   form: FormGroup;
 
   constructor(
@@ -33,7 +32,7 @@ export class AddbudgetComponent implements OnInit {
     }
 
     console.log('form valid');
-    const request = this.server.request('POST', '/budget', {
+    const request = this.server.request('POST', '/expenses', {
       title: this.form.get('title').value,
       budget: this.form.get('budget').value
     });
@@ -49,7 +48,7 @@ delete(){
       return;
 }
 
-const request = this.server.request('DELETE', '/budget',{
+const request = this.server.request('DELETE', '/expenses',{
   title: this.form.get('title').value,
   budget: this.form.get('budget').value
 });
@@ -65,7 +64,7 @@ update(){
     return;
 }
 
-const request = this.server.request('PUT', '/budget',{
+const request = this.server.request('PUT', '/expenses',{
 title: this.form.get('title').value,
 budget: this.form.get('budget').value
 });
@@ -75,5 +74,6 @@ window.location.reload()
 })
 
 }
+
 
 }

@@ -14,9 +14,9 @@ export class DonutchartComponent implements OnInit {
 
   public d3Source = [];
   public svg;
-  public margin = 40;
-  public width = 850;
-  public height = 750;
+  public margin = 300;
+  public width = 1200;
+  public height = 1000;
   // The radius of the pie chart is half the smallest side
   public radius = Math.min(this.width, this.height) / 2 - this.margin;
 

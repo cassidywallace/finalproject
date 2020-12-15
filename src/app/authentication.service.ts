@@ -31,7 +31,7 @@ get isLoggedIn(){
 
   login(user){
     if(user.email !== '' && user.password !== ''){
-      return this.server.request('POST', '/user/login', {
+      return this.server.request('POST', '/login', {
         email: user.email,
         password: user.password
       }).subscribe((response: any) => {
@@ -39,9 +39,10 @@ get isLoggedIn(){
           this.token = response.token;
           this.server.setLoggedIn(true, this.token);
           this.loggedIn.next(true);
-          localStorage.setItem('jwt', JSON.stringify(this.token));
-          this.router.navigate(['/dashboard']);
+
         }
+        localStorage.setItem('jwt', JSON.stringify(this.token));
+          this.router.navigate(['/dashboard']);
       });
     }
   }

@@ -16,8 +16,9 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.server.request('GET', '/budget').subscribe((user: any) => {
+      console.log(user);
       if(user){
-        console.log(this.email);
+
         this.email = user.email;
       }
     });

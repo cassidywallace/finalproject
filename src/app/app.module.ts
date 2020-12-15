@@ -21,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthenticationService } from './authentication.service';
 import { ServerService } from './server.service';
 import { AuthInterceptor } from './AuthInterceptor';
+import { AddexpenseComponent } from './addexpense/addexpense.component';
 
 
 
@@ -40,6 +41,7 @@ import { AuthInterceptor } from './AuthInterceptor';
     DonutchartComponent,
     BarchartComponent,
     AddbudgetComponent,
+    AddexpenseComponent,
   ],
   imports: [
     BrowserModule,

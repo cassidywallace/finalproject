@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
-import { DataService } from '../data.service';
+
+import { ExpenseService } from '../expense.service';
 
 
 
@@ -10,19 +11,13 @@ import { DataService } from '../data.service';
   styleUrls: ['./barchart.component.scss']
 })
 export class BarchartComponent implements OnInit {
-  constructor(private dataService: DataService) { }
+  constructor(private ExpenseService: ExpenseService) { }
 
-  // private data = [
-  //   {"title": "rent", "budget": "166443"},
-  //   {"title": "React", "budget": "150793", "Released": "2013"},
-  //   {"title": "Angular", "budget": "62342", "Released": "2016"},
-  //   {"title": "Backbone", "budget": "27647", "Released": "2010"},
-  //   {"title": "Ember", "budget": "21471", "Released": "2011"},
-  // ];
+
   private svg;
-  private margin = 50;
-  private width = 750 - (this.margin * 2);
-  private height = 400 - (this.margin * 2);
+  private margin = 300;
+  private width = 1200 - (this.margin * 2);
+  private height = 1000 - (this.margin * 2);
 
   private createSvg(): void {
     this.svg = d3.select("figure#bar")
@@ -74,7 +69,7 @@ export class BarchartComponent implements OnInit {
   }
   ngOnInit(): void {
     this.createSvg();
-    this.dataService.getChartData().subscribe((data) => {
+    this.ExpenseService.getChartData().subscribe((data) => {
       //console.log(data);
       this.drawBars(data);
 });
