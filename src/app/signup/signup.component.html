@@ -1,8 +1,10 @@
+
+
 <div class="grid-container">
   <div class="grid-x">
     <div class="small-12 medium-10 medium-offset-1 large-8 large-offset-2 cell">
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <h2>Sign Up</h2>
+        <h2 id="Sign up">Sign Up</h2>
         <p>Please enter your details</p>
         <label class="full-width-input">
           Email
@@ -13,9 +15,9 @@
           Password
           <input type="password" placeholder="Password" formControlName="password" required>
         </label>
-        <button class="button">Register</button>
+        <button aria-label="Register button" class="button">Register</button>
       </form>
-      <div class="login-link">
+      <div aria-label="Login here button" class="login-link">
         Already registered? <a routerLink="/">Login Here!</a>
       </div>
     </div>
