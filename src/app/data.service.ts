@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
-  dataUrl: string = 'http://127.0.0.1:3001/budget';
+  dataUrl: string = 'http://157.245.127.34:3001/budget';
   constructor(private http: HttpClient) {}
 
   getChartData(): Observable<any[]> {
