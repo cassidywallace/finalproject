@@ -22,6 +22,7 @@ import { AuthenticationService } from './authentication.service';
 import { ServerService } from './server.service';
 import { AuthInterceptor } from './AuthInterceptor';
 import { AddexpenseComponent } from './addexpense/addexpense.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 
@@ -50,7 +51,10 @@ import { AddexpenseComponent } from './addexpense/addexpense.component';
     ReactiveFormsModule
   ],
   providers: [ DataService, AuthenticationService, ServerService,
-  {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+  {
+    provide: LocationStrategy, useClass: HashLocationStrategy
+  }
 ],
   bootstrap: [AppComponent]
 })
