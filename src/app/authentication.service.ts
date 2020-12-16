@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ServerService } from './server.service';
-import { Router } from '@angular/router';
+import { ActivatedRouteSnapshot, ActivationStart, Router } from '@angular/router';
 
 
 
-const baseUrl = 'http://157.245.127.34:3001'
+const baseUrl = 'http://localhost:3001'
 
 @Injectable()
 export class AuthenticationService {

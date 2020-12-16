@@ -39,12 +39,11 @@ export class AddbudgetComponent implements OnInit {
     });
 
     request.subscribe(()=> {
-      window.location.reload()
+      this.router.navigate(['/dashboard']);
     })
-
   }
 
-delete(){
+  delete(){
     if(!this.form.valid){
       return;
 }
@@ -54,8 +53,8 @@ const request = this.server.request('DELETE', '/budget',{
   budget: this.form.get('budget').value
 });
 
-request.subscribe(() => {
-  window.location.reload()
+request.subscribe(()=> {
+  this.router.navigate(['/dashboard']);
 })
 
 }
@@ -70,8 +69,8 @@ title: this.form.get('title').value,
 budget: this.form.get('budget').value
 });
 
-request.subscribe(() => {
-window.location.reload()
+request.subscribe(()=> {
+  this.router.navigate(['/dashboard']);
 })
 
 }

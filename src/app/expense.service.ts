@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ExpenseService {
-  dataUrl: string = 'http://157.245.127.34:3001/expenses';
+  dataUrl: string = 'http://localhost:3001/expenses';
 
   constructor(private http: HttpClient) { }
 

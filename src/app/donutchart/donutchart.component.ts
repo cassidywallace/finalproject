@@ -118,7 +118,7 @@ export class DonutchartComponent implements OnInit {
     this.createSvg();
     this.dataService.getChartData().subscribe((data) => {
       this.drawChart(data);
-      console.log(data);
+
     });
   }
 }

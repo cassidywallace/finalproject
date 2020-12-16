@@ -14,7 +14,8 @@ export class AddexpenseComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private server: ServerService,
-    private router: Router
+    private router: Router,
+
   ) { }
 
   ngOnInit(): void {
@@ -36,12 +37,11 @@ export class AddexpenseComponent implements OnInit {
       title: this.form.get('title').value,
       budget: this.form.get('budget').value
     });
-
-    request.subscribe(()=> {
-      window.location.reload()
+     request.subscribe(()=> {
+      this.router.navigate(['/dashboard']);
     })
+    }
 
-  }
 
 delete(){
     if(!this.form.valid){
@@ -53,8 +53,8 @@ const request = this.server.request('DELETE', '/expenses',{
   budget: this.form.get('budget').value
 });
 
-request.subscribe(() => {
-  window.location.reload()
+request.subscribe(()=> {
+  this.router.navigate(['/dashboard']);
 })
 
 }
@@ -69,8 +69,8 @@ title: this.form.get('title').value,
 budget: this.form.get('budget').value
 });
 
-request.subscribe(() => {
-window.location.reload()
+request.subscribe(()=> {
+  this.router.navigate(['/dashboard']);
 })
 
 }
